@@ -27,6 +27,22 @@ app.use(mongoSanitize());
 app.use(cors());
 app.options('*', cors());
 
+// endpoint api server
+app.get('/', (req, res) => {
+
+    const data = {
+        app: 'SCC Project (Node API)',
+        created_by: 'Michael Antoni',
+        details: { 
+            node: process.version, 
+            platform: `${os.type()}, ${os.platform()}`, 
+            cpu: os.cpus().length, 
+            memory: Math.round( os.totalmem() / 1024 / 1024 ) 
+        }
+    };
+
+    res.json(data);
+})
 
 // Define Routes
 app.use('/api/auth', require('./routes/auth.route'));
