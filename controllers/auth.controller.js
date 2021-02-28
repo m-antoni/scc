@@ -50,7 +50,7 @@ const register = async (req, res) => {
 
         const data = await user.generateAuthToken();
 
-        res.json({  user: data.user, id: data.id, token: data.token, redirect: '/home'});
+        res.json({  user: data.user, id: data.id, token: data.token, redirect: '/'});
 
     } catch (err) {
         console.log(err)
@@ -88,7 +88,7 @@ const login = async (req, res) => {
 
         const data = await user.generateAuthToken();
 
-        res.json({  user: data.user, id: data.id, token: data.token, redirect: '/home'});
+        res.json({  user: data.user, id: data.id, token: data.token, redirect: '/'});
 
     } catch (err) {
         console.log(err)
